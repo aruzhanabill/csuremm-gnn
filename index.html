@@ -1,8 +1,118 @@
-<! DOCTYPE html> 
-<html>
-  <body>
-    <h1> Hello you! </h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tech Stock Graph</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    svg { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
 
+<div id="chart"></div>
 
+<script>
+  <Graph Visualization Code (JS)>
+(function() {
+  const width = 900;
+  const height = 600;
+  const svg = d3.select("#chart")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  const selectedStocks = ["MSFT", "IBM", "CRM", "INTU", "NOW", "ACN", "TXN", "ADBE", "MU", "PANW"];
+  const dataset = {
+    nodes: [...selectedStocks.map(id => ({ id, type: "stock" })), { id: "Tech", type: "industry" }, { id: "GS", type: "investment_bank" }, { id: "Macro", type: "macro" }],
+    links: [
+      ...selectedStocks.flatMap(stock => [{ source: stock, target: "Tech" }, { source: "Tech", target: stock }]),
+      { source: "Tech", target: "GS" }, { source: "GS", target: "Tech" },
+      { source: "Tech", target: "Macro" }, { source: "Macro", target: "Tech" },
+      ...selectedStocks.flatMap((s1, i) => selectedStocks.slice(i + 1).flatMap(s2 => [{ source: s1, target: s2 }, { source: s2, target: s1 }]))
+    ]
+  };
+
+  const blueShades = {
+    stock: d3.interpolateBlues(0.5),
+    industry: d3.interpolateBlues(0.7),
+    investment_bank: d3.interpolateBlues(0.85),
+    macro: d3.interpolateBlues(1.0)
+  };
+
+  const colorScale = d => blueShades[d.type] || "#ccc";
+
+  svg.append("defs").append("marker")
+    .attr("id", "arrow")
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 18)
+    .attr("refY", 0)
+    .attr("markerWidth", 4)
+    .attr("markerHeight", 4)
+    .attr("orient", "auto")
+    .append("path")
+    .attr("d", "M0,-5L10,0L0,5")
+    .attr("fill", "#999");
+
+  const simulation = d3.forceSimulation(dataset.nodes)
+    .force("link", d3.forceLink(dataset.links).id(d => d.id).distance(100))
+    .force("charge", d3.forceManyBody().strength(-300))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+  const link = svg.append("g")
+    .selectAll("path")
+    .data(dataset.links)
+    .join("path")
+    .attr("stroke", "#999")
+    .attr("stroke-opacity", 0.6)
+    .attr("stroke-width", 1)
+    .attr("fill", "none")
+    .attr("marker-end", "url(#arrow)");
+
+  const node = svg.append("g")
+    .selectAll("circle")
+    .data(dataset.nodes)
+    .join("circle")
+    .attr("r", d => d.type === "stock" ? 7 : d.type === "industry" ? 18 : 12)
+    .attr("fill", colorScale)
+    .call(d3.drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended));
+
+  const label = svg.append("g")
+    .selectAll("text")
+    .data(dataset.nodes)
+    .join("text")
+    .text(d => d.id)
+    .attr("font-size", 10)
+    .attr("text-anchor", "middle");
+
+  simulation.on("tick", () => {
+    link.attr("d", d => {
+      const dx = d.target.x - d.source.x;
+      const dy = d.target.y - d.source.y;
+      const dr = Math.sqrt(dx * dx + dy * dy) * 0.6;
+      return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+    });
+    node.attr("cx", d => d.x).attr("cy", d => d.y);
+    label.attr("x", d => d.x).attr("y", d => d.y - 14);
+  });
+
+  function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x; d.fy = d.y;
+  }
+  function dragged(event, d) {
+    d.fx = event.x; d.fy = event.y;
+  }
+  function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null; d.fy = null;
+  }
+})();
+</script>
+
+</body>
 </html>
