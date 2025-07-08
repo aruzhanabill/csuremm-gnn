@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Tech Stock Graph</title>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <style>
     body { font-family: sans-serif; margin: 0; padding: 0; }
-    svg { width: 100%; height: 100vh; }
+    #chart { width: 100%; height: 100vh; }
+    svg { width: 100%; height: 100%; }
   </style>
 </head>
 <body>
@@ -24,12 +25,25 @@
 
   const selectedStocks = ["MSFT", "IBM", "CRM", "INTU", "NOW", "ACN", "TXN", "ADBE", "MU", "PANW"];
   const dataset = {
-    nodes: [...selectedStocks.map(id => ({ id, type: "stock" })), { id: "Tech", type: "industry" }, { id: "GS", type: "investment_bank" }, { id: "Macro", type: "macro" }],
+    nodes: [
+      ...selectedStocks.map(id => ({ id, type: "stock" })),
+      { id: "Tech", type: "industry" },
+      { id: "GS", type: "investment_bank" },
+      { id: "Macro", type: "macro" }
+    ],
     links: [
-      ...selectedStocks.flatMap(stock => [{ source: stock, target: "Tech" }, { source: "Tech", target: stock }]),
+      ...selectedStocks.flatMap(stock => [
+        { source: stock, target: "Tech" },
+        { source: "Tech", target: stock }
+      ]),
       { source: "Tech", target: "GS" }, { source: "GS", target: "Tech" },
       { source: "Tech", target: "Macro" }, { source: "Macro", target: "Tech" },
-      ...selectedStocks.flatMap((s1, i) => selectedStocks.slice(i + 1).flatMap(s2 => [{ source: s1, target: s2 }, { source: s2, target: s1 }]))
+      ...selectedStocks.flatMap((s1, i) =>
+        selectedStocks.slice(i + 1).flatMap(s2 => [
+          { source: s1, target: s2 },
+          { source: s2, target: s1 }
+        ])
+      )
     ]
   };
 
@@ -39,7 +53,6 @@
     investment_bank: d3.interpolateBlues(0.85),
     macro: d3.interpolateBlues(1.0)
   };
-
   const colorScale = d => blueShades[d.type] || "#ccc";
 
   svg.append("defs").append("marker")
@@ -95,6 +108,7 @@
       const dr = Math.sqrt(dx * dx + dy * dy) * 0.6;
       return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
     });
+
     node.attr("cx", d => d.x).attr("cy", d => d.y);
     label.attr("x", d => d.x).attr("y", d => d.y - 14);
   });
@@ -103,9 +117,11 @@
     if (!event.active) simulation.alphaTarget(0.3).restart();
     d.fx = d.x; d.fy = d.y;
   }
+
   function dragged(event, d) {
     d.fx = event.x; d.fy = event.y;
   }
+
   function dragended(event, d) {
     if (!event.active) simulation.alphaTarget(0);
     d.fx = null; d.fy = null;
