@@ -31,6 +31,13 @@ h3 {
   font-size: 20px;
 }
 
+header {
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
 section {
   padding: 4rem 1rem;
   max-width: 800px;

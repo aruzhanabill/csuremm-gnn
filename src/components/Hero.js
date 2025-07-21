@@ -32,7 +32,7 @@ const Hero = () => {
   }, [vantaEffect]);
 
   return (
-    <section ref={vantaRef} style={{ 
+    <header ref={vantaRef} style={{ 
         height: '300px',
         width: '100vw', 
         color: 'white', 
@@ -44,7 +44,7 @@ const Hero = () => {
         }}>
       <h1 style={{ fontSize: '3rem', zIndex: 1 }}>An Introduction to OmniGNN</h1>
       <h1a style={{ fontSize: '1.25rem', zIndex: 1 }}>Globalizing the topology of Graph Neural Networks (GNNs) for robust performance under shock.</h1a>
-    </section>
+    </header>
   );
 };
 
