@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => (
   <footer style={{ textAlign: 'center', padding: '2rem' }}>
-    <p>CSUREMM</p>
+    <p>Columbia Summer Undergraduate Research Experiences in Mathematical Modeling</p>
   </footer>
 );
 
