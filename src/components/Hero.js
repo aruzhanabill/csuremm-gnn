@@ -33,7 +33,7 @@ const Hero = () => {
 
   return (
     <header ref={vantaRef} style={{ 
-        height: '300px',
+        height: '200px',
         width: '100vw', 
         color: 'white', 
         display: 'flex', 
@@ -49,13 +49,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-  
-// const Hero = () => (
-//   <section>
-//     <h1>An Introduction to OmniGNN</h1>
-//     <h1a>Globalizing the topology of Graph Neural Networks (GNNs) for robust performance under shock.</h1a>
-//   </section>
-// );
-
-// export default Hero;
