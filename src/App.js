@@ -6,7 +6,15 @@ import InteractiveDiagram from './components/InteractiveDiagram';
 import Footer from './components/Footer';
 import { InlineMath } from 'react-katex';
 import { BlockMath } from 'react-katex';
- 
+import Ablation from './Ablation-Results.jpg';
+import OmniGNN from './omni-gnn-model-diagram.png';
+import AttentionDiagram from './Attention-Diagram.png';
+import BaselineResults from './Baseline-Results.png';
+import BaselineResultsGraph from './Baseline-Results-Graph.png';
+import TransformerDiagram from './Transformer-Diagram.png'; 
+
+
+
 function App() {
   return (
     <div>
@@ -105,7 +113,7 @@ function App() {
                 each stock node on trading day <InlineMath math="t"/>. The model architecture is visualized in Figure 1.
             </p>
             <img
-                src="/omni-gnn-model-diagram.png"
+                src={OmniGNN}
                 alt="OmniGNN architecture diagram"
                 style={{
                     width: '90%',
@@ -181,7 +189,7 @@ function App() {
                 framework proposed by Graph Attention Networks.
             </p>
             <img
-                src="/Attention Diagram.png"
+                src={AttentionDiagram}
                 alt="Attention Diagram"
                 style={{
                     width: '75%',
@@ -236,7 +244,7 @@ function App() {
                 Its effectiveness for learning sequential data is repurposed here to model the temporal evolution of graph snapshots. 
             </p>
             <img
-                src="/Transformer Diagram.png"
+                src={TransformerDiagram}
                 alt="Transformer Diagram"
                 style={{
                     width: '75%',
@@ -336,15 +344,16 @@ function App() {
                improvement of OmniGNN over each model.
             </p>
             <img
-                src="/Baseline Results.png"
-                alt="Baseline Results"
-                style={{ width: '50%', borderRadius: '12px', marginTop: '1rem' }}
-            />
-            <img
-                src="/Baseline Results Graph.png"
+                src={BaselineResults}
                 alt="Baseline Results"
                 style={{ width: '100%', borderRadius: '12px', marginTop: '1rem' }}
             />
+            <img
+                src={BaselineResultsGraph}
+                alt="Baseline Results Graph"
+                style={{ width: '100%', borderRadius: '12px', marginTop: '1rem' }}
+            />
+    
             <p>
                 The experiments show that the Transformer model outperforms the GAT in all metrics, suggesting that the time-series data stored by the 10-stock 
                 corporate network is more informative than its relational patterns for the task of excess return prediction. Furthermore, OmniGNN achieves superior 
@@ -367,7 +376,7 @@ function App() {
                volatility.
             </p>
             <img
-                src="/Ablation Results.png"
+                src={Ablation}
                 alt="Case Study Results"
                 style={{ width: '100%', borderRadius: '12px', marginTop: '1rem' }}
             />
