@@ -7,5 +7,5 @@ const Section = ({ title, content }) => (
     {content}
   </section>
 );
-
+ 
 export default Section;

@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import { InlineMath } from 'react-katex';
 import { BlockMath } from 'react-katex';
 
-
+ 
 function App() {
   return (
     <div>

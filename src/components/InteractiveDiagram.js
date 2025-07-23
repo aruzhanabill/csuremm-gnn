@@ -5,7 +5,7 @@ const InteractiveDiagram = () => (
   <section>
     <h2>Architecture Diagram</h2>
     <p>[Placeholder for interactive model diagram — D3.js, SVG, or Canvas]</p>
-  </section>
+  </section> 
 );
 
 export default InteractiveDiagram;
