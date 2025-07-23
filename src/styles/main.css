@@ -52,7 +52,6 @@ section {
   overflow: hidden;
   font-size: 1rem;
   line-height: 1.8;
-  justify-items: center;
 }
 
 section > * {
