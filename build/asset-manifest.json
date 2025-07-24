@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/csuremm-gnn/static/css/main.f7dab2fb.css",
+    "main.css": "/csuremm-gnn/static/css/main.e2da72dc.css",
     "main.js": "/csuremm-gnn/static/js/main.e1e94c68.js",
     "static/media/omni-gnn-model-diagram.png": "/csuremm-gnn/static/media/omni-gnn-model-diagram.3368403613445065849f.png",
     "static/media/Attention-Diagram.png": "/csuremm-gnn/static/media/Attention-Diagram.2356d00017bafa5f193f.png",
@@ -69,11 +69,11 @@
     "static/media/KaTeX_Size3-Regular.woff": "/csuremm-gnn/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/csuremm-gnn/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/csuremm-gnn/index.html",
-    "main.f7dab2fb.css.map": "/csuremm-gnn/static/css/main.f7dab2fb.css.map",
+    "main.e2da72dc.css.map": "/csuremm-gnn/static/css/main.e2da72dc.css.map",
     "main.e1e94c68.js.map": "/csuremm-gnn/static/js/main.e1e94c68.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7dab2fb.css",
+    "static/css/main.e2da72dc.css",
     "static/js/main.e1e94c68.js"
   ]
 }

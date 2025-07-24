@@ -18,34 +18,39 @@ import TransformerDiagram from './Transformer-Diagram.png';
 function App() {
   return (
     <div>
-        <Hero />
-        <Section
+    <Hero />
+    <div style={{ textAlign: 'center', marginBottom: '8px' }}>
+    <h3 style={{ margin: 0 }}>Abstract</h3>
+    </div>
+
+
+    <Section
         title=""
         content={
-            <>
+        <>
             <p>
-                The nonlinear and chaotic nature of financial data makes accurate stock price prediction a persistent
-                challenge. While Graph Neural Networks (GNN) effectively model inter-stock dependencies, existing models
-                fail to efficiently propagate messages during macroeconomic shocks. 
+            The nonlinear and chaotic nature of financial data makes accurate stock price prediction a persistent
+            challenge. While Graph Neural Networks (GNN) effectively model inter-stock dependencies, existing models
+            fail to efficiently propagate messages during macroeconomic shocks. 
             </p>
             <p>
-                To address this challenge, we propose <strong>OmniGNN</strong>, an attention-based multi-relational dynamic GNN that
-                integrates macroeconomic context via heterogeneous node and edge types for robust message propagation.
-                Central to OmniGNN is a sector node acting as a global intermediary, enabling rapid shock propagation
-                across the graph without relying on long-range multi-hop diffusion.
+            To address this challenge, we propose <strong>OmniGNN</strong>, an attention-based multi-relational dynamic GNN that
+            integrates macroeconomic context via heterogeneous node and edge types for robust message propagation.
+            Central to OmniGNN is a sector node acting as a global intermediary, enabling rapid shock propagation
+            across the graph without relying on long-range multi-hop diffusion.
             </p>
             <p>
-                The model leverages Graph Attention Networks (GAT) to weigh neighbor contributions and employs Transformers
-                to capture temporal dynamics across multiplex relations. Experiments show that OmniGNN outperforms existing
-                stock prediction models on public datasets, particularly demonstrating strong robustness during the COVID-19
-                period.
+            The model leverages Graph Attention Networks (GAT) to weigh neighbor contributions and employs Transformers
+            to capture temporal dynamics across multiplex relations. Experiments show that OmniGNN outperforms existing
+            stock prediction models on public datasets, particularly demonstrating strong robustness during the COVID-19
+            period.
             </p>
             <p>
-                The code and models of OmniGNN are made publicly available at https://github.com/amberhli/CSUREMM-3
+            The code and models of OmniGNN are made publicly available at <a href="https://github.com/amberhli/OmniGNN" target="_blank" rel="noopener noreferrer">https://github.com/amberhli/CSUREMM-3</a>
             </p>
-            </>
+        </>
         }
-        />
+    />
 
         <Section
         title="Graph neural networks and their current limitations"
@@ -99,7 +104,17 @@ function App() {
                 local information while capturing distant interactions without relying on as many GNN layers, effectively mitigating the 
                 oversmoothing challenge.
             </p>
+            <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            <iframe
+                width="100%"
+                height="600"
+                style={{ border: 'none', maxWidth: '100%' }}
+                src="https://observablehq.com/embed/5fd79cb801651d8e?cells=viewof+useGlobalNode%2Cgraph"
+                title="GNN Visualization"
+            />
+            </div>
             </>
+            
         }
 
         />
