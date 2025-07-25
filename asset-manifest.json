@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/csuremm-gnn/static/css/main.f7dab2fb.css",
-    "main.js": "/csuremm-gnn/static/js/main.e1e94c68.js",
+    "main.css": "/csuremm-gnn/static/css/main.e2da72dc.css",
+    "main.js": "/csuremm-gnn/static/js/main.3080ad29.js",
     "static/media/omni-gnn-model-diagram.png": "/csuremm-gnn/static/media/omni-gnn-model-diagram.3368403613445065849f.png",
     "static/media/Attention-Diagram.png": "/csuremm-gnn/static/media/Attention-Diagram.2356d00017bafa5f193f.png",
-    "static/media/Transformer-Diagram.png": "/csuremm-gnn/static/media/Transformer-Diagram.f01a78f6055552ac3a42.png",
+    "static/media/Transformer-Diagram.png": "/csuremm-gnn/static/media/Transformer-Diagram.0446b1b3866398aec8ba.png",
     "static/media/KaTeX_AMS-Regular.ttf": "/csuremm-gnn/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/Baseline-Results-Graph.png": "/csuremm-gnn/static/media/Baseline-Results-Graph.32558a187bf2146f638c.png",
     "static/media/KaTeX_Main-Regular.ttf": "/csuremm-gnn/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
@@ -69,11 +69,11 @@
     "static/media/KaTeX_Size3-Regular.woff": "/csuremm-gnn/static/media/KaTeX_Size3-Regular.7947224e8a9914fa332b.woff",
     "static/media/KaTeX_Size3-Regular.woff2": "/csuremm-gnn/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/csuremm-gnn/index.html",
-    "main.f7dab2fb.css.map": "/csuremm-gnn/static/css/main.f7dab2fb.css.map",
-    "main.e1e94c68.js.map": "/csuremm-gnn/static/js/main.e1e94c68.js.map"
+    "main.e2da72dc.css.map": "/csuremm-gnn/static/css/main.e2da72dc.css.map",
+    "main.3080ad29.js.map": "/csuremm-gnn/static/js/main.3080ad29.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7dab2fb.css",
-    "static/js/main.e1e94c68.js"
+    "static/css/main.e2da72dc.css",
+    "static/js/main.3080ad29.js"
   ]
 }
